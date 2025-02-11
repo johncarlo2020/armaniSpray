@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "Futura BQ";
+    src: url("../font/FuturaBQBook.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Didot LT Pro";
+    src: url("../font/Monotype\ -\ DidotLTPro-Roman.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Didot LT Pro";
+    font-size: 9vw;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #fff;
+}
+h2 {
+    text-align: center;
+    font-family: "Didot LT Pro";
+    font-size: 5vw;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #fff;
+    margin-top: 7vh;
+}
+
+.bottle {
+    width: 55vh;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.bottle-trigger {
+    width: 29vh;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/Bg-Armani.webp") no-repeat center center/cover;
+    padding: 10vw;
+    overflow: hidden;
+}
+.logo {
+    width: 100%;
+    height: 71px;
+    margin-bottom: 10vw;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#start {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#trigger {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.d-none {
+    display: none !important;
+}
+
+#startTrigger {
+    font-family: "Futura BQ";
+    font-size: 3.5vw;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
+
+#countDown {
+    height: 78%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+#countDownNumber {
+    font-family: "Futura BQ";
+    font-size: 6.5vw;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
+
+#stopCountDown {
+    font-family: "Futura BQ";
+    font-size: 4.5vw;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-align: center;
+    color: #000000;
+    margin-top: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 50vw;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.square {
+    width: 35px;
+    height: 35px;
+    background-color: #000;
+    border-radius: 8px;
+    margin-left: 3vw;
+}
+
+.fade-out {
+    animation: fadeOut 0.2s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
