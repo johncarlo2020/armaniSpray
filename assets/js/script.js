@@ -6,7 +6,7 @@ const countDownNumber = document.getElementById('countDownNumber');
 const stopCountDown = document.getElementById('stopCountDown');
 let time = 60;
 const intervalDuration = 300;
-const socket = new WebSocket("ws://127.0.0.1:8080");
+const socket = new WebSocket("ws://192.168.1.101:8080");
 socket.onopen = () => {
         console.log("Connected to the server");
       };
@@ -61,18 +61,11 @@ trigger.addEventListener('click', function() {
 });
 
 stopCountDown.addEventListener('click', function() {
-    startTrigger.classList.add('fade-out');
     socket.send(
             JSON.stringify({
               type: "short",
               data: "short",
             })
             );
-    setTimeout(() => {
-        countDown.classList.add('d-none');
-        startTrigger.classList.add('d-none');
-        start.classList.remove('d-none');
-        startTrigger.classList.remove('fade-out');
-        time = 60;
-    }, intervalDuration);
+            location.reload();
 });

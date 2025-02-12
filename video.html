@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <video id="shortVid" class="active" loop autoplay muted>
+    <video id="shortVid" class="active" loop autoplay >
         <source src="assets/videos/short.mp4" type="video/mp4">
     </video>
 
@@ -28,7 +28,7 @@
     </video>
 
     <script>
-     const socket = new WebSocket("ws://127.0.0.1:8080");
+     const socket = new WebSocket("ws://192.168.1.101:8080");
     socket.onmessage = async (event) => {
         try {
             const textData = await event.data.text(); // Convert Blob to text
@@ -56,6 +56,24 @@
 
         }
         function long(){
+            setTimeout(function() {
+                    // namesDisplay.style.opacity = '1';
+                    fetch("http://192.168.1.105/?switch=1&second=5")
+                        .then(response => response.text())
+                        .then(data => console.log("API Response:", data))
+                        .catch(error => console.error("API Error:", error));
+                }, 5000);
+                
+                
+            setTimeout(function() {
+                    // namesDisplay.style.opacity = '1';
+                    fetch("http://192.168.1.105/?switch=1&second=5")
+                        .then(response => response.text())
+                        .then(data => console.log("API Response:", data))
+                        .catch(error => console.error("API Error:", error));
+                }, 15000);
+
+
             let shortVid = document.getElementById("shortVid");
             let longVid = document.getElementById("longVid");
             longVid.classList.add("active");
