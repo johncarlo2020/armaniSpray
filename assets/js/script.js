@@ -1,6 +1,10 @@
 const start = document.getElementById('start');
 const trigger = document.getElementById('trigger');
 const startTrigger = document.getElementById('startTrigger');
+const imgTrigger = document.getElementById('imgTrigger');
+const spray = document.getElementById('spray');
+
+
 const countDown = document.getElementById('countDown');
 const countDownNumber = document.getElementById('countDownNumber');
 const stopCountDown = document.getElementById('stopCountDown');
@@ -21,7 +25,7 @@ start.addEventListener('click', function() {
     }, 1000);
 });
 
-trigger.addEventListener('click', function() {
+imgTrigger.addEventListener('click', function() {
     trigger.classList.add('fade-out');
        socket.send(
             JSON.stringify({
@@ -59,6 +63,16 @@ trigger.addEventListener('click', function() {
         }, intervalDuration);
     }, 60000);
 });
+
+spray.addEventListener('click', function() {
+  fetch("http://192.168.1.105/?switch=1&second=5")
+                        .then(response => response.text())
+                        .then(data => console.log("API Response:", data))
+                        .catch(error => console.error("API Error:", error));
+                
+});
+
+
 
 stopCountDown.addEventListener('click', function() {
     socket.send(

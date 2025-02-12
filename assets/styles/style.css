@@ -94,6 +94,17 @@ body {
     margin-top: 40px;
 }
 
+#spray {
+    font-family: "Futura BQ";
+    font-size: 3.5vw;
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
+
+
 #countDown {
     height: 78%;
     display: flex;
