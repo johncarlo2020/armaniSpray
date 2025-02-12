@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Swap</title>
+    <style>
+        video {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        video.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="shortVid" class="active" loop autoplay muted>
+        <source src="assets/videos/short.mp4" type="video/mp4">
+    </video>
+
+    <video id="longVid" loop autoplay muted>
+        <source src="assets/videos/long.mp4" type="video/mp4">
+    </video>
+
+    <script>
+     const socket = new WebSocket("ws://127.0.0.1:8080");
+    socket.onmessage = async (event) => {
+        try {
+            const textData = await event.data.text(); // Convert Blob to text
+            const parsedData = JSON.parse(textData); // Parse JSON
+            console.log(parsedData);
+
+            if (parsedData.type === "short") {
+                short();
+            } else if (parsedData.type === "long") {
+                long();
+            }
+        } catch (error) {
+            console.error("Error parsing WebSocket message:", error);
+        }
+    };
+
+        function short(){
+            let shortVid = document.getElementById("shortVid");
+            let longVid = document.getElementById("longVid");
+            shortVid.classList.add("active");
+            longVid.classList.remove("active");
+            longVid.pause();
+            shortVid.play();
+
+
+        }
+        function long(){
+            let shortVid = document.getElementById("shortVid");
+            let longVid = document.getElementById("longVid");
+            longVid.classList.add("active");
+            shortVid.classList.remove("active");
+            shortVid.pause();
+            longVid.play();
+        }
+        
+    </script>
+</body>
+
+</html>
